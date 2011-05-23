@@ -9,4 +9,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec-rails", "~> 2.5"
   s.add_development_dependency "capybara"
+  s.add_development_dependency "launchy", "0.3.7"
+  s.add_development_dependency "database_cleaner", "~> 0.6.7"
 end

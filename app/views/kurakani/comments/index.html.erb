@@ -1,0 +1,9 @@
+<h1>Comments</h1>
+
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <%= div_for(comment) do %>
+      <%= comment.content %>
+    <% end%>
+  <% end %>
+</div>

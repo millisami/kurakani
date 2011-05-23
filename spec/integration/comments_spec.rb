@@ -2,15 +2,15 @@ require 'spec_helper'
 
 describe "comments" do 
   it "creating a new comment" do
-    visit comments_path
+    visit new_comment_path
     fill_in "Content", :with => "First comment"
-    click_button "Create Comment"
+    click_button "Create"
 
     within "#flash_notice" do 
       page.should have_content("Comment has been created!")
     end
 
-    within "#comments .comment" do
+    within "#comments" do
       page.should have_content("First comment")
     end
   end

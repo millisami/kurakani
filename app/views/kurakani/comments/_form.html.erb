@@ -1,0 +1,5 @@
+<%= form_for @comment do |f| -%>
+  <%= f.label :content, "Content" %>
+  <%= f.text_field :content %>
+  <%= f.submit "Create", :disable_with => 'Createing...' %>
+<% end -%>
