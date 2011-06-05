@@ -13,11 +13,15 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config| 
   config.use_transactional_fixtures = false
+
+  config.filter_run :focus => true
+  config.run_all_when_everything_filtered = true
+  config.filter_run_excluding :exclude => true
   
   config.before(:suite) do
     # DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.strategy = :truncation
-    # DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.strategy = :deletion
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
@@ -29,3 +33,12 @@ RSpec.configure do |config|
   end
   
 end
+  # 
+  # config.before(:suite) do
+  #   DatabaseCleaner.strategy = :truncation
+  #   DatabaseCleaner.clean
+  # end
+  # config.after(:each) do
+  #   DatabaseCleaner.clean
+  # 
+  # end
