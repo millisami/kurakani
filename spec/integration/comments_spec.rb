@@ -1,8 +1,14 @@
 require 'spec_helper'
 
 describe "comments" do 
+  
+  let(:post) { Post.create!(:title => "First Post", :content => "The content of the post") }
+  
   it "creating a new comment" do
-    visit new_comment_path
+    post.title.should eql("First Post")
+    
+    visit post_path(post)
+    save_and_open_page
     fill_in "Content", :with => "First comment"
     click_button "Create"
 
