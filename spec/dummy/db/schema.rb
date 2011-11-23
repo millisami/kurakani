@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,20 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110605181419) do
-
-  create_table "kurakani_comments", :force => true do |t|
-    t.text     "content"
-    t.text     "rendered_content"
-    t.integer  "user_id"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "kurakani_comments", ["commentable_id", "commentable_type"], :name => "index_kurakani_comments_on_commentable_id_and_commentable_type"
-  add_index "kurakani_comments", ["user_id"], :name => "index_kurakani_comments_on_user_id"
+ActiveRecord::Schema.define(:version => 20111119172907) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -33,7 +21,10 @@ ActiveRecord::Schema.define(:version => 20110605181419) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login"
+    t.string   "username",         :null => false
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
