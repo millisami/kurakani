@@ -1,5 +1,14 @@
-<%= form_for @comment do |f| -%>
-  <%= f.label :content, "Content" %>
-  <%= f.text_field :content %>
-  <%= f.submit "Create", :disable_with => 'Createing...' %>
-<% end -%>
+<% if controller.send(Kurakani::Engine.current_user) %>
+<div id="comment_form">
+  <h2>New Comment</h2>
+  <%= form_for(Kurakani::Comment.new, :url => kurakani.comments_path) do |f| -%>
+    <%= hidden_field_tag :commentable_id, commentable.id %>
+    <%= hidden_field_tag :commentable_type, commentable.class %>
+    <p><%= f.label :content, "Your comment" %><br />
+    <%= f.text_area :content, :rows => 8 %></p>
+    <p><%= f.submit "Create", :disable_with => 'Creating...' %></p>
+  <% end -%>
+</div>
+<% end %>
+<h2 id="comment_header">Comments</h2>
+<div id="comments"></div>

@@ -3,9 +3,8 @@ class CreateKurakaniComments < ActiveRecord::Migration
     create_table :kurakani_comments do |t|
       t.text :content
       t.text :rendered_content
-      t.integer :user_id
-      t.integer :commentable_id
-      t.string  :commentable_type
+      t.references :user
+      t.references :commentable, :polymorphic => true
 
       t.timestamps  
     end

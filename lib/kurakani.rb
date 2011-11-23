@@ -1,11 +1,10 @@
 require "kurakani/engine"
 require "kurakani/user_extensions"
+require "kurakani/helpers"
+require "kurakani/commentable"
 
 module Kurakani
   
-  def make_commentable!
-    include Commentable
-  end
 end
 
-ActiveRecord::Base.extend Kurakani
+# ActiveRecord::Base.extend Kurakani
