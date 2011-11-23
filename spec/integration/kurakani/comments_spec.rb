@@ -14,9 +14,9 @@ describe Kurakani::Comment do
       page.should_not have_content("New Comment")
     end
     
-    it "cannot add a comment" do
+    it "redirect to login url" do
       visit post_path(post)
-      debugger
+      click_link "Login to comment"
       page.current_url.should eql(send(Kurakani::Engine.login_url))
     end
   end
