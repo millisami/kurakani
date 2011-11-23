@@ -13,6 +13,19 @@
 
 ActiveRecord::Schema.define(:version => 20111119172907) do
 
+  create_table "kurakani_comments", :force => true do |t|
+    t.text     "content"
+    t.text     "rendered_content"
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "kurakani_comments", ["commentable_id", "commentable_type"], :name => "index_kurakani_comments_on_commentable_id_and_commentable_type"
+  add_index "kurakani_comments", ["user_id"], :name => "index_kurakani_comments_on_user_id"
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
