@@ -10,7 +10,7 @@ module Kurakani
     def create
       
       @commentable = find_commentable
-      @comment = Kurakani::Comment.create(params[:comment].merge(:commentable_type => @commentable.class.to_s, :commentable_id => @commentable.id))
+      @comment = Kurakani::Comment.create(params[:comment].merge!(:commentable_type => @commentable.class.to_s, :commentable_id => @commentable.id).merge!(:user_id => current_user.id))
       flash[:notice] = "Comment has been created!"
       respond_with(@comment, :location => main_app.polymorphic_path(@commentable))
     end

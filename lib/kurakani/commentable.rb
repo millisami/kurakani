@@ -4,14 +4,6 @@ module Kurakani
     def self.included(base)
       base.extend ClassMethods
     end
-
-    
-    # included do |base|
-    #   # debugger
-    #   # base.class_eval do
-    #     base.has_many :comments, :as => :commentable
-    #   # end
-    # end
     
     module ClassMethods
       def make_commentable
@@ -19,8 +11,8 @@ module Kurakani
       end
     end
     
-    # module InstanceMethods
-    # end
+    module InstanceMethods
+    end
   end
 end
 

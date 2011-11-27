@@ -1,0 +1,4 @@
+<% if comment && comment.user.present? %>
+  <%= content_tag(:h3, comment.user.send(Kurakani::Engine.user_name)) %>
+  <%= comment.rendered_content %>
+<% end %>

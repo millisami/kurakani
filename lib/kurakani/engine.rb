@@ -1,6 +1,11 @@
 module Kurakani
   class Engine < Rails::Engine
     isolate_namespace Kurakani
+
+    config.to_prepare do
+      ::ActionView::Base.send(:include, Kurakani::Helpers)
+    end
+
     cattr_accessor :current_user, :login_url, :logout_url, :unauthorized_url, :can_moderate_comments, :user_name
 
     def self.current_user

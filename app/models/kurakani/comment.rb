@@ -1,9 +1,10 @@
 module Kurakani
   class Comment < ActiveRecord::Base
+    
     belongs_to :commentable, :polymorphic => true
-        
-    # TODO
-    # Kurakani::Comment.belongs_to :user, :class_name => base.to_s
+    
+    # belongs_to :user
+    # The above association is dynamically created in user_extensions module
     
     markdownize! :content
     
