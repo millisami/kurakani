@@ -3,7 +3,7 @@ module Kurakani
     extend ActiveSupport::Concern
     
     included do
-      helper_method :kurakani_login_url, :kurakani_current_user
+      helper_method :kurakani_login_url, :kurakani_current_user, :kurakani_admin?
     end
     
     module InstanceMethods
@@ -13,6 +13,10 @@ module Kurakani
     
       def kurakani_current_user
         send(Kurakani::Engine.current_user)
+      end
+      
+      def kurakani_admin?
+        kurakani_current_user && kurakani_current_user.send(Kurakani::Engine.can_moderate_comments)
       end
     end
     

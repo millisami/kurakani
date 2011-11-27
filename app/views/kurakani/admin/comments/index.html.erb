@@ -1,0 +1,9 @@
+<h1>Kurakani Comments Dashboard</h1>
+
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <%= div_for(comment) do %>
+      <%= comment.rendered_content %>
+    <% end%>
+  <% end %>
+</div>

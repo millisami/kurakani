@@ -43,6 +43,21 @@ describe Kurakani::Comment do
       Kurakani::Comment.count.should eql(1)
     end
     
+    it "un-authorized user cannot moderate comments" do
+      expect { visit "/kurakani/admin" }.to raise_error(Kurakani::AccessDenied)
+    end
   end
   
+  context "authorized user" do
+    let(:admin_user) { create(:admin_user, username: "sachin") }
+    
+    before do
+      login_as(admin_user)
+    end
+    
+    it "can visit comments admin dashboard" do
+      visit "/kurakani/admin"
+      page.should have_content("Kurakani Comments Dashboard")
+    end
+  end
 end

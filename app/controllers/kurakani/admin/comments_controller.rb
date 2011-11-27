@@ -1,7 +1,7 @@
 module Kurakani
-  class Admin::CommentsController < ApplicationController
+  class Admin::CommentsController < Admin::ApplicationController
     
-    
+    respond_to :html
     
     def index
       @comments = Kurakani::Comment.all
