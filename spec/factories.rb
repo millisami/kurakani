@@ -3,10 +3,10 @@ FactoryGirl.define do
     sequence(:username) { |n| "millisami#{n}" }
     email { "#{username}@example.com" }
     password "secret"
-    #admin false
+    admin false
     
-    # factory :admin_user, :class => User do
-    #   admin true
-    # end
+    factory :admin_user, :class => User do
+      admin true
+    end
   end
 end
