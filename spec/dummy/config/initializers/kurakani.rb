@@ -3,7 +3,7 @@ Kurakani::Engine.logout_url = :logout_url
 Kurakani::Engine.unauthorized_url = :unauthorized_url
 
 Kurakani::Engine.current_user = :current_user
-Kurakani::Engine.user_name = :login
+Kurakani::Engine.user_name = :username
 
 # :can_moderate_comments is a method that will be called on Kurakani::Engine.current_user for authorization
 # should return Boolean true/false

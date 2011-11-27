@@ -4,6 +4,7 @@ require 'rails/all'
 
 Bundler.require
 require "kurakani"
+require 'sorcery'
 
 module Dummy
   class Application < Rails::Application

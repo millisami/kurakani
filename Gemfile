@@ -5,6 +5,8 @@ gem 'markdownizer'
 group :development, :test do
   gem 'sqlite3'
   gem 'sorcery'
+  gem 'pry'
+  gem 'pry-doc'
 end
 
 if RUBY_VERSION < '1.9'
