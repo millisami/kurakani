@@ -1,7 +1,5 @@
 source "http://rubygems.org"
 
-gem 'markdownizer'
-
 group :development, :test do
   gem 'sqlite3'
   gem 'sorcery'
