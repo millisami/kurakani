@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kurakani Admin</title>
+  <%= stylesheet_link_tag    "kurakani/admin/application" %>
+  <%= javascript_include_tag "kurakani/admin/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div style="z-index: 5;" class="topbar-wrapper">
+      <div data-dropdown="dropdown" class="topbar">
+        <div class="topbar-inner">
+          <div class="container">
+            <h3><a href="#">Project Name</a></h3>
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#">Dropdown</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Secondary link</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Another link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form action="" class="pull-left">
+              <input type="text" placeholder="Search">
+            </form>
+            <ul class="nav secondary-nav">
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#">Dropdown</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Secondary link</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Another link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div><!-- /topbar-inner -->
+      </div><!-- /topbar -->
+    </div>
+<% flash.each do |key, message| %> 
+  <p id="flash_<%= key %>"><%= message %></p>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

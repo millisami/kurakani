@@ -9,3 +9,4 @@ development:
 
 test: 
   <<: *shared
+  database: db/test.sqlite3
