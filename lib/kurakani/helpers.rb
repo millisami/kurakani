@@ -13,5 +13,9 @@ module Kurakani # :nodoc:
       # render a comment form
       render :partial => "kurakani/comments/form", :locals => {:commentable => @commentable, :comments => @comments}
     end
+    
+    def kurakani_comment_author(author)
+      "#{author.send(Kurakani::Engine.user_name)}"
+    end
   end
 end

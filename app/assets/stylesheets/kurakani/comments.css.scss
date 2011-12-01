@@ -1,0 +1,91 @@
+$kurakani_teritory: 900px;
+
+div#kurakani_teritory {
+  margin: 0px auto;
+  padding-top: 15px;
+  width: $kurakani_teritory;
+}
+form#new_kurakani_comment {
+  textarea#comment_content {
+    border: 1px solid #DDDDDD;
+    height: 150px;
+    padding: 7px;
+    width: 95%;
+    }
+}
+ol#kurakani_comments {
+  list-style-type: none;
+  margin: 30px 0 75px;
+  
+  li.kurakani_comment {
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 20px;
+    padding-bottom: 6px;
+    
+    cite {
+      float: left;
+      font-weight: bold;
+      margin: 0 8px 0 0;
+    }
+    div.kurakani_comment_meta {
+      display: block;
+      float: left;
+      overflow: hidden;
+      width: 50%;
+      line-height: 22px;
+      margin: 0 0 5px;
+      position: relative;
+      
+      a {
+        color: #AAA;
+        font-size: 10px;
+        text-transform: uppercase;
+        &:hover {
+          color: #777;
+        }
+      }
+    }
+    
+    div.kurakani_item_kurakani_comment {
+      margin: 0 0 0 75px;
+      min-height: 70px;
+      padding-bottom: 10px;
+      position: relative;
+      
+      img.kurakani_avatar {
+        background: #FCFCFC;
+        border: 1px solid #C8C8C2;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+        left: -75px;
+        padding: 2px;
+        position: absolute;
+      }
+    }
+    div.kurakani_comment_content {
+      clear: both;
+      margin-bottom: 15px;
+    }
+    a.kurakani_reply_link {
+      color: #AAA;
+      display: block;
+      font-size: 11px;
+      font-style: italic;
+      padding: 0 10px 0 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      &:hover {
+        color: #777;
+      }
+    }
+    ul.children {
+      list-style-type: none;
+      margin: 0 0 0 75px;
+      li.comment {
+        border-top: 1px solid #EBEBEB;
+        margin: 0;
+        padding: 15px 0 0;
+      }
+    }
+  }
+}

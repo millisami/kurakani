@@ -6,8 +6,6 @@ group :assets do
                               :git => 'git://github.com/anjlab/bootstrap-rails.git'
 end
 
-gem 'twitter_bootstrap_form_for'                              
-
 group :development, :test do
   gem 'sqlite3'
   gem 'sorcery'

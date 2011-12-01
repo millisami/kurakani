@@ -6,7 +6,7 @@ module Kurakani
       ::ActionView::Base.send(:include, Kurakani::Helpers)
     end
 
-    cattr_accessor :current_user, :login_url, :logout_url, :unauthorized_url, :can_moderate_comments, :user_name
+    cattr_accessor :current_user, :login_url, :logout_url, :unauthorized_url, :can_moderate_comments, :user_name, :user_class
 
     def self.current_user
       @@current_user || raise(Kurakani::Engine::ConfigurationNotFound.new("current_user"))
@@ -30,6 +30,10 @@ module Kurakani
 
     def self.user_name
       @@user_name || raise(Kurakani::Engine::ConfigurationNotFound.new("user_name"))
+    end
+
+    def self.user_class
+      @@user_class || raise(Kurakani::Engine::ConfigurationNotFound.new("user_class"))
     end
 
   end

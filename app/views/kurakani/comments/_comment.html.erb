@@ -1,4 +1,40 @@
-<% if comment && comment.user.present? %>
-  <%= content_tag(:h3, comment.user.send(Kurakani::Engine.user_name)) %>
-  <%= comment.rendered_content %>
+<%= content_tag_for(:li, comment, :class => cycle(:odd, :even)) do %>
+  <%= content_tag_for(:div, comment, :kurakani_item) do %>
+    <div class="comment_author vcard">
+      <%= image_tag "author.png", :class => "kurakani_avatar" %>
+      <cite><%= kurakani_comment_author(comment.user) %></cite>
+    </div>
+    <div class="kurakani_comment_meta">
+      <a href="http://qualityonrails.com/archives/8#comment-2">November 26, 2011 at 7:59 pm</a>
+    </div>
+    <div class="kurakani_comment_content">
+      <%= comment.rendered_content.html_safe %>
+    </div>
+    <div class="reply">
+      <a class="kurakani_reply_link" href="/archives/8?replytocom=2#respond">Reply</a>
+    </div>
+    
+    <!-- 
+    <ul class="children">
+      <li class="comment" id="comment-9">
+      <div id="div-comment-9" class="kurakani_item_kurakani_comment">
+        <div class="comment-author vcard">
+          <%#= image_tag "author.png", :class => "kurakani_avatar" %>
+          <cite>Author</cite>
+        </div>
+        <div class="kurakani_comment_meta">
+          <a href="http://qualityonrails.com/archives/8#comment-2">November 26, 2011 at 7:59 pm</a>
+        </div>
+        <div class="kurakani_comment_content">
+          <%#= comment.rendered_content.html_safe %>
+          <p>DelegatePresenter looks like a nice simple, clean solution. I like it. Thanks for pointing it out!</p>
+        </div>
+        <div class="reply">
+          <a class="kurakani_reply_link" href="/archives/8?replytocom=2#respond">Reply</a>
+        </div>
+      </div>
+      </li>  
+    </ul>
+    -->
+  <% end %>
 <% end %>
